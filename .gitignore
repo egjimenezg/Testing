@@ -3,3 +3,5 @@ build/
 target/
 .classpath
 .project
+.DS_Store
+npm-debug.log
