@@ -4,6 +4,39 @@ repositories{
   jcenter() 
 }
 
+//Drivers de los navegadores
+ext.drivers = ['firefox','chrome']
+
 dependencies{ 
-  groovy 'org.codehaus.groovy:groovy-all:2.3.6'
+  compile 'org.codehaus.groovy:groovy-all:2.3.6'
+
+  def gebVersion = '0.9.2'
+  def seleniumVersion = '2.30.0'
+
+  //Si se utiliza Spock, es necesaria la dependencia de geb-spock 
+  testCompile 'org.gebish:geb-spock:$gebVersion'
+  testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+  
+  //Si se utiliza JUnit, es necesaria la dependencia de geb-junit (3 o 4)
+  testCompile 'org.gebish:geb-junit4:$gebVersion' 
+
+  drivers.each{ driver ->
+    testCompile 'org.seleniumhq.selenium:selenium-$driver-driver'
+  }
+}
+
+drivers.each{ driver ->
+  task "${driver}Test"(type:Test){
+    reports{
+      html.destination = reporting.file("$name/tests")
+      junitXml.destination = file("$buildDir/test-results/$name")      
+    }
+    
+    systemProperty  "geb.build.reportsDir",reporting.file("$name/geb")
+    systemProperty  "geb.env",driver
+  }
+}
+
+test  { dependsOn drivers.collect { tasks["${it}Test"]  }
+
 }
