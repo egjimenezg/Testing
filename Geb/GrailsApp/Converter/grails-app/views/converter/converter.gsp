@@ -17,6 +17,6 @@
         <button type="button" class="btn btn-default btn-lg">
         </button>
       </div>
-		</div>
-	</body>
+    </div>
+  </body>
 </html>
