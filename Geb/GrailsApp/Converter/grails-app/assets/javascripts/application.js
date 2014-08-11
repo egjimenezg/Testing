@@ -8,6 +8,7 @@
 //= require jquery
 //= require_tree .
 //= require_self
+//= require custom.js
 
 if (typeof jQuery !== 'undefined') {
 	(function($) {
