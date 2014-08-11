@@ -8,15 +8,16 @@ class ConverterController {
   
   def convert(){
     def convertedNumber
+    if(params.numericValue){
+      try{
+        convertedNumber = converterService.convertNumber(params.int('type'),Integer.parseInt(params.numericValue)) 
+      }
+      catch(Exception exception){
+        flash.message = 'El número no puede ser convertido'
+      }
 
-    try{
-      convertedNumber = converterService.convertNumber(params.type,Integer.parseInt(params.numericValue)) 
+      render view:'index',model:[result:convertedNumber]
     }
-    catch(NumberFormatException numberFormatException){
-      flash.message = 'The number can`t be converted'   
-    }
-
-    redirect action:"index"
   }       
   
 }
