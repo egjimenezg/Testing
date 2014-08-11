@@ -6,17 +6,19 @@ import static java.lang.Math.*
 @Transactional
 class ConverterService {
 
-  def convertNumber(typeOfConversion,number){
+  def convertNumber(typeOfConversion,number){ 
     if(typeOfConversion == 1)
-      return convertBinaryToDecimal(number)       
-    else
+      convertBinaryToDecimal(number) 
+    else if(typeOfConversion == 2)
       convertDecimalToBinary(number)
   }
 
   def convertBinaryToDecimal(number){
     def decimalNumber = 0
     def stringNumber = String.valueOf(number).reverse()
-    
+    if(!(stringNumber ==~ /[0|1]*/))  
+       throw new RuntimeException("The number is not binary")
+
     stringNumber.length().times{ i -> 
       decimalNumber += Integer.parseInt(stringNumber[i])*pow(2,i)
     }
