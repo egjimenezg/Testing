@@ -10,11 +10,11 @@
   </head>
   <body>
     <div class="container-fluid">
-      <g:form controller="Converter" action="convert" name="conversionForm">
+      <g:form controller="Converter" action="convert" name="conversionForm" id="converter">
         <div class="row">
           <div class="col-xs-7">
             <h4>Escribe un número y elecciona el tipo de conversión          
-            <input type="text" name="numericValue" /> 
+            <input type="text" name="numericValue" id="numericValue" /> 
           </div>
           <div class="col-md-1">
             <g:select class="form-control" name="type" from="${[[key:1,value:'Binario a Decimal'],
@@ -35,7 +35,7 @@
           </g:if>
           <g:else>
             <div class="alert alert-info result col-md-1">
-              Resultado: ${result}
+              <p id="result">Resultado: ${result}</p>
             </div>
           </g:else>
         </div>
