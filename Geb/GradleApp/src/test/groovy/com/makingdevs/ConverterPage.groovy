@@ -7,8 +7,9 @@ class ConverterPage extends Page{
   static url = "converter/index"
   
   static content = {
-    number { $("form#converter").find("input#numericValue") }
-    calculate { $("form#converter").find("button[type=submit]") }
+    currentForm {  $("form#conversionForm") }
+    number { $("form#conversionForm").find("input") }
+    calculate { $("form#conversionForm").find("button[type=submit]") }
     result { $("#result") }
   } 
 }
