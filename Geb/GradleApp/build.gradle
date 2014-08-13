@@ -14,14 +14,14 @@ dependencies{
   def seleniumVersion = '2.30.0'
 
   //Si se utiliza Spock, es necesaria la dependencia de geb-spock 
-  testCompile 'org.gebish:geb-spock:$gebVersion'
-  testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+  testCompile "org.gebish:geb-spock:$gebVersion"
+  testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
   
   //Si se utiliza JUnit, es necesaria la dependencia de geb-junit (3 o 4)
-  testCompile 'org.gebish:geb-junit4:$gebVersion' 
+  testCompile "org.gebish:geb-junit4:$gebVersion" 
 
   drivers.each{ driver ->
-    testCompile 'org.seleniumhq.selenium:selenium-$driver-driver'
+    testCompile "org.seleniumhq.selenium:selenium-${driver}-driver:${seleniumVersion}"
   }
 }
 
@@ -34,9 +34,13 @@ drivers.each{ driver ->
     
     systemProperty  "geb.build.reportsDir",reporting.file("$name/geb")
     systemProperty  "geb.env",driver
+    systemProperty  "webdriver.chrome.driver","${System.properties["user.home"]}/.grails/chromedriver"
+    systemProperty  "geb.build.baseUrl","http://localhost:8080/Converter"
   }
 }
 
-test  { dependsOn drivers.collect { tasks["${it}Test"]  }
-
+test  {
+  dependsOn drivers.collect { tasks["${it}Test"]  } 
+  enabled = false
 }
+
