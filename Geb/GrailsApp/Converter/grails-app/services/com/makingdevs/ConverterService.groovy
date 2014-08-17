@@ -14,7 +14,7 @@ class ConverterService {
   }
 
   def convertBinaryToDecimal(number){
-    def decimalNumber = 0
+    def decimalNumber = new BigDecimal("0")
     def stringNumber = String.valueOf(number).reverse()
     if(!(stringNumber ==~ /[0|1]*/))  
        throw new RuntimeException("The number is not binary")
@@ -32,6 +32,7 @@ class ConverterService {
       binaryNumber += (number.intValue()%2)
       number /= 2
     }
-    Integer.parseInt(binaryNumber.reverse())
+
+    new BigInteger(binaryNumber.reverse())
   }
 }
