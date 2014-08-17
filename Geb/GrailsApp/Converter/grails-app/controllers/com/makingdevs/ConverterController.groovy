@@ -8,7 +8,7 @@ class ConverterController {
   
   def convert(){
     
-    Integer convertedNumber    
+    BigInteger convertedNumber    
     try{
       convertedNumber = converterService.convertNumber(params.int('type'),Integer.parseInt(params.numericValue))
     }
