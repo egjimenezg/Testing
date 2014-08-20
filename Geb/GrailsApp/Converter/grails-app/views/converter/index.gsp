@@ -17,7 +17,7 @@
             <input type="text" name="numericValue" id="numericValue" /> 
           </div>
           <div class="col-md-1">
-            <g:select class="form-control" name="type" from="${[[key:1,value:'Binario a Decimal'],
+           <g:select id="typeOfConversion" class="form-control" name="type" from="${[[key:1,value:'Binario a Decimal'],
                                        [key:2,value:'Decimal a Binario']]}" optionKey="key" optionValue="value"></g:select>
           </div>
         </div>
@@ -35,7 +35,7 @@
           </g:if>
           <g:else>
             <div class="alert alert-info result col-md-1">
-              <p id="result">Resultado: ${result}</p>
+              <p>Resultado: <span id="result">${result}</span></p>
             </div>
           </g:else>
         </div>
