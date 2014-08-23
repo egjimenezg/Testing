@@ -4,7 +4,9 @@ class ConverterController {
   
   def converterService 
 
-  def index(){}
+  def index(){
+    [result:params.result]
+  }
   
   def convert(){
     
@@ -16,7 +18,7 @@ class ConverterController {
       flash.message = 'El número no puede ser convertido'
     }
 
-    render view:'index',model:[result:convertedNumber]
+    redirect action:'index',params:[result:convertedNumber]
   }
   
 }
