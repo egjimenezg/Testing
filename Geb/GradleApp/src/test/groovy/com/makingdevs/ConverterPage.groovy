@@ -4,8 +4,6 @@ import geb.*
 
 class ConverterPage extends Page{
 
-  static url = "converter/index"
-  
   static content = {
     currentForm {  $("#converter") }
     number { $("form#conversionForm").find("input") }
