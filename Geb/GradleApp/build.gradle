@@ -37,7 +37,7 @@ drivers.each{ driver ->
     systemProperty  "geb.build.reportsDir",reporting.file("$name/geb")
     systemProperty  "geb.env",driver
     systemProperty  "webdriver.chrome.driver","${System.properties["user.home"]}/.grails/chromedriver"
-    systemProperty  "geb.build.baseUrl","http://localhost:8080/Converter/"
+    systemProperty  "geb.build.baseUrl","http://localhost:8080/Converter"
   }
 }
 
