@@ -30,7 +30,7 @@
 
           <g:if test="${flash.message}">
             <div class="alert alert-danger result col-md-1">
-            ${flash.message}
+            <span id="result">${flash.message}</span>
             </div>
           </g:if>
           <g:else>
