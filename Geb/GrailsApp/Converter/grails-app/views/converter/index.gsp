@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="container-fluid">
-      <g:form controller="Converter" action="convert" name="conversionForm" id="converter">
+      <g:form controller="Converter" action="convert" name="converter" id="converter">
         <div class="row">
           <div class="col-xs-7">
             <h4>Escribe un número y elecciona el tipo de conversión          

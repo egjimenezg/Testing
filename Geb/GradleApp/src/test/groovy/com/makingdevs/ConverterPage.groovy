@@ -5,10 +5,9 @@ import geb.*
 class ConverterPage extends Page{
 
   static content = {
-    currentForm {  $("#converter") }
-    number { $("form#conversionForm").find("input") }
+    number { $("form#converter").find("input") }
     typeOfConversion { $("#typeOfConversion") }
-    calculate { $("form#conversionForm").find("button[type=submit]") }
+    calculate { $("form#converter").find("button[type=submit]") }
     result { $("#result") }
   } 
 }
