@@ -8,10 +8,10 @@ repositories{
 ext.drivers = ['firefox','chrome']
 
 dependencies{ 
-  compile 'org.codehaus.groovy:groovy-all:2.3.6'
+  compile 'org.codehaus.groovy:groovy-all:2.3.10'
 
-  def gebVersion = '0.9.3'
-  def seleniumVersion = '2.42.2'
+  def gebVersion = '0.10.0'
+  def seleniumVersion = '2.44.0'
 
   //Si se utiliza Spock, es necesaria la dependencia de geb-spock 
   testCompile "org.gebish:geb-spock:$gebVersion"
