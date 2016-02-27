@@ -8,14 +8,14 @@ repositories{
 ext.drivers = ['firefox','chrome']
 
 dependencies{ 
-  compile 'org.codehaus.groovy:groovy-all:2.3.10'
+  compile 'org.codehaus.groovy:groovy-all:2.4.5'
 
   def gebVersion = '0.10.0'
-  def seleniumVersion = '2.44.0'
+  def seleniumVersion = '2.52.0'
 
   //Si se utiliza Spock, es necesaria la dependencia de geb-spock 
   testCompile "org.gebish:geb-spock:$gebVersion"
-  testCompile "org.spockframework:spock-core:0.7-groovy-2.0"
+  testCompile "org.spockframework:spock-core:1.0-groovy-2.4"
   
   testCompile "org.seleniumhq.selenium:selenium-support:${seleniumVersion}"
   
@@ -36,7 +36,7 @@ drivers.each{ driver ->
     
     systemProperty  "geb.build.reportsDir",reporting.file("$name/geb")
     systemProperty  "geb.env",driver
-    systemProperty  "webdriver.chrome.driver","${System.properties["user.home"]}/.grails/chromedriver"
+    systemProperty  "webdriver.chrome.driver","${System.properties["user.home"]}/.spock/chromedriver"
     systemProperty  "geb.build.baseUrl","http://localhost:8080/Converter"
   }
 }
